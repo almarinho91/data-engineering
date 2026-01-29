@@ -1,0 +1,11 @@
+__pycache__/
+ingestion/__pycache__
+*.pyc
+.venv/
+.DS_Store
+.vscode/
+*.egg-info/
+*.duckdb
+notebooks/
+*.env
+exports/
