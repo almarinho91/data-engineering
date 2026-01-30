@@ -1,15 +1,12 @@
 from __future__ import annotations
 
-import io
 import math
+import re
 from dataclasses import dataclass
 from typing import Optional
 
 import pandas as pd
 import requests
-
-import re
-from typing import Iterable
 
 
 RECENT_DIR = (
