@@ -1,9 +1,26 @@
 # Event Analytics Pipeline
 
-This project is a small data engineering pipeline built to work with event-level data (application logs).
+Small data engineering project built to work with event-level data (application logs).
 
-The goal is to practice ingestion, data modeling, data quality checks, and analytics-ready outputs using simulated event data.
+The pipeline generates synthetic events to simulate real-world scenarios such as
+duplicates, late-arriving events, and incomplete records. Data is ingested into
+DuckDB using a raw → staging → mart structure.
 
-Event data is generated locally to mimic real-world scenarios such as duplicates, late-arriving events, and incomplete records.
+## Features
+- Event-level ingestion (JSONL)
+- Idempotent loads using business keys
+- Canonical staging model
+- Daily analytics metrics
+- User sessionization
+- Basic data quality checks
+- Export to CSV and Parquet
 
-More features will be added incrementally.
+## How to run
+
+```bash
+python -m ingestion.generate_events
+python -m ingestion.init_db
+python -m ingestion.ingest_events
+python -m ingestion.run_sql
+python -m ingestion.check_data
+python -m ingestion.export_mart
