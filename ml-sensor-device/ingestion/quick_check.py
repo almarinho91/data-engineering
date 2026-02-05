@@ -15,6 +15,9 @@ def main():
             ORDER BY max_cycle DESC
             LIMIT 10
         """).fetchdf())
+
+        print(con.execute("SELECT COUNT(*) AS raw_rows FROM raw.cmapss_cycles").fetchdf())
+        print(con.execute("SELECT COUNT(*) AS stg_rows FROM stg.cmapss_cycles").fetchdf())
     finally:
         con.close()
 
