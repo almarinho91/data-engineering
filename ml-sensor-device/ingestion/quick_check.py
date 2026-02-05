@@ -18,6 +18,16 @@ def main():
 
         print(con.execute("SELECT COUNT(*) AS raw_rows FROM raw.cmapss_cycles").fetchdf())
         print(con.execute("SELECT COUNT(*) AS stg_rows FROM stg.cmapss_cycles").fetchdf())
+
+        print(con.execute("SELECT COUNT(*) AS feature_rows FROM features.engine_features").fetchdf())
+
+        print(con.execute("""
+            SELECT *
+            FROM features.engine_features
+            ORDER BY rul ASC
+            LIMIT 5
+        """).fetchdf())
+        
     finally:
         con.close()
 
